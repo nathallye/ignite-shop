@@ -1,38 +1,55 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Ignite Shop
 
-## Getting Started
+## Criando um projeto com Next.js
 
-First, run the development server:
+- Dentro da pasta do projeto, vamos rodar o comando(mais recomendado atualmente usar o npx):
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+```
+> npx create-next-app@latest
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**npx:** Comando que vai se encarregar de baixar uma dependência que vamos usar apenas de forma temporária. Ele baixa essa dependência, executa o que tem que ser executado e depois exclui ela. Desse modo, não instalamos as dependências de forma global, evitando ocupar espaço na máquina. 
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+**create-next-app:** Dependência para criar um projeto.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+- Ao finalizar a criação ele informa no terminal os próximos passos.
+Primeiro, entrar na pasta da aplicação:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```
+> cd ignite-shop
+     [nome-pasta-aplicação]
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- Segundo, rodar o comando para iniciar o projeto:
 
-## Learn More
+```
+> npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Configurações do projeto
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Dentro do vscode, podemos notar que foram criados os seguintes diretórios no projeto:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```
+node_modules
+public
+pages
+styles
+```
 
-## Deploy on Vercel
+Vamos **criar uma pasta src na raiz do projeto**.
+E **mover as pastas pages e styles para dentro de src**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Agora, vamos parar a aplicação
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```
+> ctrl + c
+```
+
+- E rodar novamente, para que a página seja recarregada:
+
+```
+> npm run dev
+```
+
+- Vamos criar também a pasta `components` dentro de `src`;
