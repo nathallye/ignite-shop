@@ -31,6 +31,7 @@ Primeiro, entrar na pasta da aplicação:
 Dentro do vscode, podemos notar que foram criados os seguintes diretórios no projeto:
 
 ```
+.next
 node_modules
 public
 pages
