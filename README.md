@@ -54,3 +54,21 @@ E **mover as pastas pages e styles para dentro de src**
 ```
 
 - Vamos criar também a pasta `components` dentro de `src`;
+
+## Criando rotas da aplicação
+
+Agora vamos entender sobre o roteamento do NextJS, como podemos utilizar o sistema de arquivos para criar rotas a partir do nome dos nossos arquivos no NextJS.
+
+- Para isso, dentro de `src/pages` vamos criar um arquivo com o nome da nossa rota(product e Success) que vai poder ser acessada através de `localhost:3000/[nome-arquivo]`. E o conteúdo desse arquivo será um componente:
+
+``` TSX
+import React from "react";
+
+const Product = () => {
+  return <h1>Product</h1>;
+};
+
+export default Product;
+```
+
+- Se quisermos receber parâmetros nessa url, podemos criar uma pasta com o nome do arquivo(product e Success) e adicionar `[nome-parâmetro]` no nome do arquivo tsx(ex.: `src/pages/product/[id].tsx`).
