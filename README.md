@@ -72,3 +72,36 @@ export default Product;
 ```
 
 - Se quisermos receber parâmetros nessa url, podemos criar uma pasta com o nome do arquivo(product e Success) e adicionar `[nome-parâmetro]` no nome do arquivo tsx(ex.: `src/pages/product/[id].tsx`).
+
+### Configurando documento HTML
+
+- No Next não temos um arquivo chamado `index.html`, as configurações de carregamento de fontes do nosso app são colocadas dentro do arquivo `_document.tsx`. Como é feito a seguir:
+
+``` TSX
+import { Html, Head, Main, NextScript } from "next/document";
+
+const Document = () => {
+  return (
+    <Html>
+      <Head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+          rel="stylesheet"
+        />
+      </Head>
+      <body>
+        <Main />
+        <NextScript /> {/* Essa TAG indica o local onde iremos carregar o script da aplicação*/}
+      </body>
+    </Html>
+  );
+}
+
+export default Document;
+```
