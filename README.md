@@ -26,7 +26,7 @@ Primeiro, entrar na pasta da aplicação:
 > npm run dev
 ```
 
-## Configurações do projeto
+### Configurações do projeto
 
 Dentro do vscode, podemos notar que foram criados os seguintes diretórios no projeto:
 
@@ -55,7 +55,7 @@ E **mover as pastas pages e styles para dentro de src**
 
 - Vamos criar também a pasta `components` dentro de `src`;
 
-## Criando rotas da aplicação
+### Criando rotas da aplicação
 
 Agora vamos entender sobre o roteamento do NextJS, como podemos utilizar o sistema de arquivos para criar rotas a partir do nome dos nossos arquivos no NextJS.
 
