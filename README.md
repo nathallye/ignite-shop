@@ -1,7 +1,7 @@
 # Ignite Shop
 
 <div align="center">
-  <img width="600" src="">
+  <img width="700" src="">
 </div>
 
 ## Sobre o Next.js
