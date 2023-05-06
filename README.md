@@ -1,5 +1,9 @@
 # Ignite Shop
 
+<div align="center">
+  <img width="600" src="">
+</div>
+
 ## Sobre o Next.js
 
 O Next.js permite que você crie aplicativos da Web de pilha completa, estendendo os recursos mais recentes do React e integrando poderosas ferramentas JavaScript baseadas em Rust para compilações mais rápidas. Podemos trabalhar nele com aplicações SSR(Server Side Rendering) e SSG(Static Site Generator).
