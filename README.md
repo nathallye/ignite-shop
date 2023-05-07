@@ -105,3 +105,78 @@ const Document = () => {
 
 export default Document;
 ```
+
+### Configurando Stitches
+
+Ferramenta CSS-in-JS com foco em performance e experiencia de desenvolvimento que utilizaremos para estilizar a nossa aplicação.
+
+- Para configurar Stitches, iremos criar um arquivo ``styles/index.ts`` (`.js` funciona também) e importar a função `createStitches`.
+
+``` TS
+import { createStitches } from "@stitches/react";
+```
+
+Esta função recebe um objeto de configuração:
+
+- `theme`: defina seu tema de design , que mapeia para as propriedades CSS.
+- `media`: Definir pontos de interrupção responsivos reutilizáveis .
+- `utils`: crie utilitários personalizados para melhorar sua experiência de desenvolvedor.
+- `prefix`: Prefixe nomes de classe e variáveis ​​CSS para evitar conflitos.
+- `themeMap`: Defina o mapeamento personalizado de propriedades CSS para tokens de tema.
+
+E retorna todas as funções disponíveis acima:
+
+``` TSX
+import { createStitches } from "@stitches/react";
+
+export const {
+  config,
+  styled,
+  css,
+  globalCss,
+  keyframes,
+  getCssText,
+  theme,
+  createTheme
+} = createStitches({
+  theme: {
+    colors: {
+      rocketseat: '#8257e6',
+    }
+  }
+});
+```
+
+- Deste ponto em diante, iremos importar `styled` e outras funções do arquivo `styles/index.ts`(mas como não precisa especificar o index.ts - vamos importar direto da pasta styles):
+
+``` TSX
+import { styled } from "../styles";
+
+const Button = styled("button", {
+  display: "flex",
+  
+  backgroundColor: "$rocketseat",
+  borderRadius: 4,
+  border: 0,
+
+  gap: "0.5rem",
+  padding: "4px 8px",
+
+  span: {
+    fontWeight: "bold"
+  },
+
+  "&:hover": {
+    filter: "brightness(0.8)"
+  }
+});
+
+export default function Home() {
+  return (
+    <Button>
+      <span>Teste</span>
+      Enviar
+    </Button>
+  );
+}
+```
