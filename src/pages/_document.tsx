@@ -15,11 +15,15 @@ const Document = () => {
           href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
           rel="stylesheet"
         />
-        <style id="stitches" dangerouslySetInnerHTML={{ __html: getCssText() }} />
+        <style
+          id="stitches"
+          dangerouslySetInnerHTML={{ __html: getCssText() }}
+        />
       </Head>
       <body>
         <Main />
-        <NextScript /> {/* Essa TAG indica o local onde iremos carregar o script da aplicação*/}
+        <NextScript />{" "}
+        {/* Essa TAG indica o local onde iremos carregar o script da aplicação*/}
       </body>
     </Html>
   );
