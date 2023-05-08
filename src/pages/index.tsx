@@ -3,7 +3,7 @@ import { styled } from "../styles";
 const Button = styled("button", {
   display: "flex",
   
-  backgroundColor: "$rocketseat",
+  backgroundColor: "$green300",
   borderRadius: 4,
   border: 0,
 

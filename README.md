@@ -143,7 +143,7 @@ export default Document;
 
 Ferramenta CSS-in-JS com foco em performance e experiencia de desenvolvimento que utilizaremos para estilizar a nossa aplicação.
 
-- Para configurar Stitches, iremos criar um arquivo ``styles/index.ts`` (`.js` funciona também) e importar a função `createStitches`.
+- Para configurar Stitches, iremos criar um arquivo `styles/index.ts` (`.js` funciona também) e importar a função `createStitches`:
 
 ``` TS
 import { createStitches } from "@stitches/react";
@@ -212,4 +212,36 @@ export default function Home() {
     </Button>
   );
 }
+```
+
+#### Stitches - Estilos globais
+
+- Para configurar os estilos globais com Stitches, iremos criar um arquivo `styles/global.ts` (`.js` funciona também) e importar a função `globalCss` e dentro iremos definir os estilos globais do projeto:
+
+``` TS
+import { globalCss } from ".";
+
+export const globalStyles = globalCss({
+  "*": {
+    margin: 0,
+    padding: 0
+  },
+
+  body: {
+    backgroundColor: "$gray900",
+    color: "$gray100",
+    "-webkit-font-smoothing": "antialiased"
+  },
+
+  "body, input, textarea, button": {
+    fontFamily: "Roboto",
+    fontWeight: 400
+  }
+});
+```
+
+- Feito isso, iremos importar o `globalStyles` dentro de `_app.tsx`:
+
+``` TSX
+
 ```
