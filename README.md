@@ -204,7 +204,7 @@ const Button = styled("button", {
   }
 });
 
-export default function Home() {
+const Home = () => {
   return (
     <Button>
       <span>Teste</span>
@@ -212,6 +212,8 @@ export default function Home() {
     </Button>
   );
 }
+
+export default Home;
 ```
 
 #### Stitches - Estilos globais
@@ -249,9 +251,11 @@ import { globalStyles } from "../styles/global";
 
 globalStyles();
 
-export default function App({ Component, pageProps }: AppProps) {
+const App = ({ Component, pageProps }: AppProps) => {
   return (
     <Component {...pageProps} />
   );
 }
+
+export default App;
 ```
