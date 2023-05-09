@@ -243,5 +243,15 @@ export const globalStyles = globalCss({
 - Feito isso, iremos importar o `globalStyles` dentro de `_app.tsx`:
 
 ``` TSX
+import { AppProps } from "next/app";
 
+import { globalStyles } from "../styles/global";
+
+globalStyles();
+
+export default function App({ Component, pageProps }: AppProps) {
+  return (
+    <Component {...pageProps} />
+  );
+}
 ```
