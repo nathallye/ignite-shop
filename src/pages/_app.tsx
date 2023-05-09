@@ -7,7 +7,7 @@ import logoImg from "../assets/logo.svg";
 
 globalStyles();
 
-export default function App({ Component, pageProps }: AppProps) {
+const App = ({ Component, pageProps }: AppProps) => {
   return (
     <Container>
       <Header>
@@ -18,3 +18,5 @@ export default function App({ Component, pageProps }: AppProps) {
     </Container>
   );
 }
+
+export default App;
