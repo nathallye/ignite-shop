@@ -204,7 +204,7 @@ const Button = styled("button", {
   }
 });
 
-export default function Home() {
+const Home = () => {
   return (
     <Button>
       <span>Teste</span>
@@ -212,6 +212,8 @@ export default function Home() {
     </Button>
   );
 }
+
+export default Home;
 ```
 
 #### Stitches - Estilos globais
@@ -243,5 +245,17 @@ export const globalStyles = globalCss({
 - Feito isso, iremos importar o `globalStyles` dentro de `_app.tsx`:
 
 ``` TSX
+import { AppProps } from "next/app";
 
+import { globalStyles } from "../styles/global";
+
+globalStyles();
+
+const App = ({ Component, pageProps }: AppProps) => {
+  return (
+    <Component {...pageProps} />
+  );
+}
+
+export default App;
 ```

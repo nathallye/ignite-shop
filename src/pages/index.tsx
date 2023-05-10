@@ -19,7 +19,7 @@ const Button = styled("button", {
   }
 });
 
-export default function Home() {
+const Home = () => {
   return (
     <Button>
       <span>Teste</span>
@@ -27,3 +27,5 @@ export default function Home() {
     </Button>
   );
 }
+
+export default Home;
