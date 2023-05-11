@@ -1,30 +1,32 @@
-import { styled } from "../styles";
+import Image from "next/image";
 
-const Button = styled("button", {
-  display: "flex",
-  
-  backgroundColor: "$green300",
-  borderRadius: 4,
-  border: 0,
+import { HomeContainer, Product } from "../styles/pages/home";
 
-  gap: "1rem",
-  padding: "4px 8px",
-
-  span: {
-    fontWeight: "bold"
-  },
-
-  "&:hover": {
-    filter: "brightness(0.8)"
-  }
-});
+import shirt1 from "../assets/shirts/shirt-1.png";
+import shirt2 from "../assets/shirts/shirt-2.png";
+import shirt3 from "../assets/shirts/shirt-3.png";
 
 const Home = () => {
   return (
-    <Button>
-      <span>Teste</span>
-      Enviar
-    </Button>
+    <HomeContainer>
+      <Product>
+        <Image alt="" src={shirt1} width={520} height={480} />
+
+        <footer>
+          <strong>Camiseta X</strong>
+          <span>R$ 79,90</span>
+        </footer>
+      </Product>
+
+      <Product>
+        <Image alt="" src={shirt2} width={520} height={480} />
+
+        <footer>
+          <strong>Camiseta X</strong>
+          <span>R$ 79,90</span>
+        </footer>
+      </Product>
+    </HomeContainer>
   );
 }
 
