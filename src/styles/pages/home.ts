@@ -3,7 +3,7 @@ import { styled } from "..";
 export const HomeContainer = styled("main", {
   display: "flex",
   
-  gap: "3rem",
+  // gap: "3rem",
   width: "100%",
   maxWidth: "calc(100vw - ((100vw - 1180px) / 2))", // largura intera da tela(100vw) - (a largura intera da tela(100vw) - tamanho das margens do container(1180px) dividido por 2)
   marginLeft: "auto",
@@ -19,13 +19,13 @@ export const Product = styled("a", {
   borderRadius: 8,
 
   position: "relative",
-  padding: "0.25rem",
+  // padding: "0.25rem",
   
   cursor: "pointer",
   overflow: "hidden",
 
   img: {
-    objectFit: "cover"
+    objectFit: "cover" // para a imagem caber no container sem distorcer
   },
 
   footer: {
