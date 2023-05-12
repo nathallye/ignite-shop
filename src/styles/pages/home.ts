@@ -8,7 +8,7 @@ export const HomeContainer = styled("main", {
   maxWidth: "calc(100vw - ((100vw - 1180px) / 2))", // largura intera da tela(100vw) - (a largura intera da tela(100vw) - tamanho das margens do container(1180px) dividido por 2)
   marginLeft: "auto",
   minHeight: 656
-})
+});
 
 export const Product = styled("a", {
   display: "flex",
@@ -63,4 +63,4 @@ export const Product = styled("a", {
       opacity: 1
     }
   }
-})
+});
