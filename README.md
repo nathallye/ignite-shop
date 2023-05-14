@@ -259,3 +259,76 @@ const App = ({ Component, pageProps }: AppProps) => {
 
 export default App;
 ```
+
+### Data Fetching no Next.js
+
+Agora entenderemos sobre as formas de se buscar dados no NextJS, como por exemplos chamadas à API e chamadas HTTP.
+
+Entenderemos a diferença de fazer chamadas HTTP no lado do cliente e também no lado do servidor, e as chamadas do lado do servidor podem nos beneficiar em alguns casos.
+
+#### getServerSideProps
+
+- O next não devolve nada para o front-end antes que tudo esteja carregado (princípio de aplicações SSR), o código que colocarmos dentro não ficar visível para o usuário final, desse modo, podemos colocar código sensível (código de autenticaçao, de banco de dados...):
+
+``` TS
+export const getServerSideProps: GetServerSideProps = async () => {
+  // o next não devolve nada para o front end antes que tudo esteja carregado (princípio de aplicações SSR)
+  // o código que colocarmos aqui dentro não ficar visível para o usuário final, desse modo, podemos colocar código sensível (código de autenticaçao, de banco de dados...)
+
+  const response = await stripe.products.list({
+    expand: ["data.default_price"] // acessando a tabela de relacionada a tabela de products - default_price
+  });
+
+  // console.log(response.data); // só aparece no console do node(terminal)
+
+  const products = response.data.map((product) => {
+    const price = product.default_price as Stripe.Price;
+
+    return {
+      id: product.id,
+      name: product.name,
+      imageUrl: product.images[0],
+      price: price.unit_amount / 100
+    };
+  });
+
+  return {
+    props: {
+      products
+    }
+  };
+};
+```
+
+#### getStaticProps
+
+Podemos usar o SSG para criar uma versão estática da nossa página que fica cacheada para acelerar o carregamento e até diminuir o número de requisições à API.
+
+- Roda somente no momento que next criar a versão de cache da página (na build) - aplicações SSG, dentro não temos acesso ao contexto da aplicação (usuário logado por exemplo):
+
+``` TS
+export const getStaticProps: GetStaticProps = async () => { // roda somente no momento que next criar a versão de cache da página (na build) - SSG
+  // aqui dentro não temos acesso ao contexto da aplicação (usuário logado por exemplo)
+  const response = await stripe.products.list({
+    expand: ["data.default_price"]
+  });
+
+  const products = response.data.map((product) => {
+    const price = product.default_price as Stripe.Price;
+
+    return {
+      id: product.id,
+      name: product.name,
+      imageUrl: product.images[0],
+      price: price.unit_amount / 100
+    };
+  });
+
+  return {
+    props: {
+      products
+    },
+    revalidate: 60 * 60 * 2 // essa página será recriada a cada 2 horas
+  };
+};
+```

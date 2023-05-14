@@ -1,15 +1,11 @@
 import Image from "next/image";
 import Stripe from "stripe";
-import { GetServerSideProps } from "next";
+import { GetStaticProps } from "next";
 import { useKeenSlider } from "keen-slider/react";
 
 import { stripe } from "../lib/stripe";
 
 import { HomeContainer, Product } from "../styles/pages/home";
-
-import shirt1 from "../assets/shirts/shirt-1.png";
-import shirt2 from "../assets/shirts/shirt-2.png";
-import shirt3 from "../assets/shirts/shirt-3.png";
 
 interface HomeProps {
   products: {
@@ -49,6 +45,7 @@ const Home = ({ products }: HomeProps) => {
 
 export default Home;
 
+/*
 export const getServerSideProps: GetServerSideProps = async () => {
   // o next não devolve nada para o front end antes que tudo esteja carregado (principio de aplicações SSR)
   // o código que colocarmos aqui dentro não ficar visível para o usuário final, desse modo, podemos colocar código sensível (código de autenticaçao, de banco de dados...)
@@ -74,5 +71,31 @@ export const getServerSideProps: GetServerSideProps = async () => {
     props: {
       products
     }
+  };
+};
+*/
+
+export const getStaticProps: GetStaticProps = async () => { // roda somente no momento que next criar a versão de cache da página (na build) - SSG
+  // aqui dentro não temos acesso ao contexto da aplicação (usuário logado por exemplo)
+  const response = await stripe.products.list({
+    expand: ["data.default_price"]
+  });
+
+  const products = response.data.map((product) => {
+    const price = product.default_price as Stripe.Price;
+
+    return {
+      id: product.id,
+      name: product.name,
+      imageUrl: product.images[0],
+      price: price.unit_amount / 100
+    };
+  });
+
+  return {
+    props: {
+      products
+    },
+    revalidate: 60 * 60 * 2 // essa página será recriada a cada 2 horas
   };
 };
