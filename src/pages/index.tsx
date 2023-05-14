@@ -63,6 +63,7 @@ export default Home;
 
 
 export const getServerSideProps = async () => { // o next não devolve nada para o front end antes que tudo esteja carregado (principio de aplicações SSR)
+  // o código que colocarmos aqui dentro não ficar visível para o usuário final, desse modo, podemos colocar código sensível (código de autenticaçao, de banco de dados...)
   await new Promise(resolve => setTimeout(resolve, 2000))
 
   console.log("rodou"); // só aparece no console do node(terminal)
