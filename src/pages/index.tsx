@@ -88,7 +88,10 @@ export const getStaticProps: GetStaticProps = async () => { // roda somente no m
       id: product.id,
       name: product.name,
       imageUrl: product.images[0],
-      price: price.unit_amount / 100
+      price: new Intl.NumberFormat("pt-BR", { // vamos formatar o price aqui dentro porque essa requisão vai ser feita a cada duas horas, economizando processamento
+        style: "currency",
+        currency: "BRL"
+      }).format(price.unit_amount / 100)
     };
   });
 
