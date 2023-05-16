@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import Stripe from "stripe";
 import { GetStaticProps } from "next";
 import { useKeenSlider } from "keen-slider/react";
@@ -29,14 +30,17 @@ const Home = ({ products }: HomeProps) => {
     <HomeContainer ref={sliderRef} className="keen-slider">
       {products.map((product) => {
         return (
-          <Product key={product.id} className="keen-slider__slide">
-            <Image src={product.imageUrl} width={520} height={480} alt="" />
+          // O Link não faz refresh na página, seguindo o conceito de SPA
+          <Link href={`/product/${product.id}`} key={product.id}> 
+            <Product className="keen-slider__slide">
+              <Image src={product.imageUrl} width={520} height={480} alt="" />
 
-            <footer>
-              <strong>{product.name}</strong>
-              <span>{product.price}</span>
-            </footer>
-          </Product>
+              <footer>
+                <strong>{product.name}</strong>
+                <span>{product.price}</span>
+              </footer>
+            </Product>
+          </Link>
         );
       })}
     </HomeContainer>
