@@ -44,12 +44,12 @@ export default Product;
 
 export const getStaticPaths: GetStaticPaths = async () => { // SSG com parâmetro dinâmico
   return {
-    paths: [
+    paths: [ // os produtos informados dentro de paths vão ser gerados estaticamente (podem ser aqueles mais acessados, para melhor performance da aplicação)
       {
         params: { id: "prod_NsrAqTZzdGril1" }
       }
     ],
-    fallback: "blocking"
+    fallback: "blocking" // fallback vai gerar as páginas com parâmetros dinâmicos que não foram informadas em paths - "blocking" não mostra nada em tela, até ter algo para mostrar
   };
 };
 
