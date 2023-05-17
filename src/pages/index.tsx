@@ -31,6 +31,8 @@ const Home = ({ products }: HomeProps) => {
       {products.map((product) => {
         return (
           // O Link não faz refresh na página, seguindo o conceito de SPA
+          // O Next já deixa pré carregado todos os Link's que encontra em tela, o que pode gerar muitas requisições a depender da quantidade de Link's em tela 
+          // prefetch{false} desativa esse comportamento padrão
           <Link href={`/product/${product.id}`} key={product.id} prefetch={false}> 
             <Product className="keen-slider__slide">
               <Image src={product.imageUrl} width={520} height={480} alt="" />
