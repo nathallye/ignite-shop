@@ -1,5 +1,5 @@
 import React from "react";
-import { GetStaticProps } from "next";
+import { GetStaticPaths, GetStaticProps } from "next";
 import Image from "next/image";
 import Stripe from "stripe";
 
@@ -41,6 +41,17 @@ const Product = ({ product }: ProductProps) => {
 };
 
 export default Product;
+
+export const getStaticPaths: GetStaticPaths = async () => { // SSG com parâmetro dinâmico
+  return {
+    paths: [
+      {
+        params: { id: "prod_NsrAqTZzdGril1" }
+      }
+    ],
+    fallback: false
+  };
+};
 
 export const getStaticProps: GetStaticProps<any, { id: string }> = async ({ params }) => {
   const productId = params.id; // acessando o id da url
