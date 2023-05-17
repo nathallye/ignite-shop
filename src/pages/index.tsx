@@ -31,7 +31,7 @@ const Home = ({ products }: HomeProps) => {
       {products.map((product) => {
         return (
           // O Link não faz refresh na página, seguindo o conceito de SPA
-          <Link href={`/product/${product.id}`} key={product.id}> 
+          <Link href={`/product/${product.id}`} key={product.id} prefetch={false}> 
             <Product className="keen-slider__slide">
               <Image src={product.imageUrl} width={520} height={480} alt="" />
 
