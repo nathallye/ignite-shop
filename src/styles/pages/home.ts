@@ -3,14 +3,13 @@ import { styled } from "..";
 export const HomeContainer = styled("main", {
   display: "flex",
   
-  // gap: "3rem",
   width: "100%",
   maxWidth: "calc(100vw - ((100vw - 1180px) / 2))", // largura intera da tela(100vw) - (a largura intera da tela(100vw) - tamanho das margens do container(1180px) dividido por 2)
   marginLeft: "auto",
   minHeight: 656
 });
 
-export const Product = styled("a", {
+export const Product = styled("div", {
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
@@ -19,7 +18,6 @@ export const Product = styled("a", {
   borderRadius: 8,
 
   position: "relative",
-  // padding: "0.25rem",
   
   cursor: "pointer",
   overflow: "hidden",

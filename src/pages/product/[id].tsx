@@ -1,31 +1,39 @@
 import React from "react";
-import { useRouter } from "next/router";
+import { GetStaticProps } from "next";
+import Image from "next/image";
+import Stripe from "stripe";
+
+import { stripe } from "../../lib/stripe";
+
 import {
   ImageContainer,
   ProductContainer,
   ProductDetails,
 } from "../../styles/pages/product";
 
-const Product = () => {
-  const { query } = useRouter();
+interface ProductProps {
+  product: {
+    id: string;
+    name: string;
+    imageUrl: string;
+    price: string;
+    description: string;
+  };
+}
+
+const Product = ({ product }: ProductProps) => {
 
   return (
-    // <h1>Product {JSON.stringify(query)}</h1>
     <ProductContainer>
       <ImageContainer>
+        <Image src={product.imageUrl} width={520} height={480} alt="" />
       </ImageContainer>
 
       <ProductDetails>
-        <h1>Camiseta X</h1>
-        <span>R$ 79,90</span>
+      <h1>{product.name}</h1>
+        <span>{product.price}</span>
 
-        <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolores
-          aliquid rerum exercitationem facere a molestiae ut sed velit non
-          mollitia? Officiis hic velit assumenda aspernatur nihil, sint sed
-          laboriosam tempora?
-        </p>
-
+        <p>{product.description}</p>
         <button>Comprar agora</button>
       </ProductDetails>
     </ProductContainer>
@@ -33,3 +41,29 @@ const Product = () => {
 };
 
 export default Product;
+
+export const getStaticProps: GetStaticProps<any, { id: string }> = async ({ params }) => {
+  const productId = params.id; // acessando o id da url
+
+  const product = await stripe.products.retrieve(productId, {
+    expand: ["default_price"] // acessando a tabela de relacionada a tabela de products - default_price
+  });
+
+  const price = product.default_price as Stripe.Price;
+
+  return {
+    props: {
+      product: {
+        id: product.id,
+        name: product.name,
+        description: product.description, 
+        imageUrl: product.images[0],
+        price: new Intl.NumberFormat("pt-BR", { // vamos formatar o price aqui dentro porque essa requisão vai ser feita a cada duas horas, economizando processamento
+          style: "currency",
+          currency: "BRL"
+        }).format(price.unit_amount / 100) 
+      }
+    },
+    revalidate: 60 * 60 * 1 // essa página será recriada a cada 1 horas
+  };
+};
