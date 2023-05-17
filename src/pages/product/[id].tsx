@@ -49,7 +49,7 @@ export const getStaticPaths: GetStaticPaths = async () => { // SSG com parâmetr
         params: { id: "prod_NsrAqTZzdGril1" }
       }
     ],
-    fallback: false
+    fallback: "blocking"
   };
 };
 
