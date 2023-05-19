@@ -16,12 +16,17 @@ interface ProductProps {
     id: string;
     name: string;
     imageUrl: string;
-    price: string;
     description: string;
+    price: string;
+    defaultPriceId: string;
   };
 }
 
 const Product = ({ product }: ProductProps) => {
+
+  const buyProductHandler = () => {
+    console.log(product.defaultPriceId);
+  };
 
   return (
     <ProductContainer>
@@ -34,7 +39,7 @@ const Product = ({ product }: ProductProps) => {
         <span>{product.price}</span>
 
         <p>{product.description}</p>
-        <button>Comprar agora</button>
+        <button onClick={buyProductHandler}>Comprar agora</button>
       </ProductDetails>
     </ProductContainer>
   );
@@ -72,7 +77,8 @@ export const getStaticProps: GetStaticProps<any, { id: string }> = async ({ para
         price: new Intl.NumberFormat("pt-BR", { // vamos formatar o price aqui dentro porque essa requisão vai ser feita a cada duas horas, economizando processamento
           style: "currency",
           currency: "BRL"
-        }).format(price.unit_amount / 100) 
+        }).format(price.unit_amount / 100),
+        defaultPriceId: price.id
       }
     },
     revalidate: 60 * 60 * 1 // essa página será recriada a cada 1 horas
