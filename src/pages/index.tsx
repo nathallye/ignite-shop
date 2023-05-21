@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import Head from "next/head";
 import Stripe from "stripe";
 import { GetStaticProps } from "next";
 import { useKeenSlider } from "keen-slider/react";
@@ -27,25 +28,31 @@ const Home = ({ products }: HomeProps) => {
   });
 
   return (
-    <HomeContainer ref={sliderRef} className="keen-slider">
-      {products.map((product) => {
-        return (
-          // O Link não faz refresh na página, seguindo o conceito de SPA
-          // O Next já deixa pré carregado todos os Link's que encontra em tela, o que pode gerar muitas requisições a depender da quantidade de Link's em tela 
-          // prefetch{false} desativa esse comportamento padrão
-          <Link href={`/product/${product.id}`} key={product.id} prefetch={false}> 
-            <Product className="keen-slider__slide">
-              <Image src={product.imageUrl} width={520} height={480} alt="" />
+    <>
+      <Head>
+        <title>Home | Ignite Shop</title>
+      </Head>
 
-              <footer>
-                <strong>{product.name}</strong>
-                <span>{product.price}</span>
-              </footer>
-            </Product>
-          </Link>
-        );
-      })}
-    </HomeContainer>
+      <HomeContainer ref={sliderRef} className="keen-slider">
+        {products.map((product) => {
+          return (
+            // O Link não faz refresh na página, seguindo o conceito de SPA
+            // O Next já deixa pré carregado todos os Link's que encontra em tela, o que pode gerar muitas requisições a depender da quantidade de Link's em tela 
+            // prefetch{false} desativa esse comportamento padrão
+            <Link href={`/product/${product.id}`} key={product.id} prefetch={false}> 
+              <Product className="keen-slider__slide">
+                <Image src={product.imageUrl} width={520} height={480} alt="" />
+
+                <footer>
+                  <strong>{product.name}</strong>
+                  <span>{product.price}</span>
+                </footer>
+              </Product>
+            </Link>
+          );
+        })}
+      </HomeContainer>
+    </>
   );
 };
 
