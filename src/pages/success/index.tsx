@@ -1,19 +1,34 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
+import { GetServerSideProps } from "next";
+import Stripe from "stripe";
+
+import { stripe } from "../../lib/stripe";
 
 import { SuccessContainer } from "../../styles/pages/success";
 import { ImageContainer } from "../../styles/pages/success";
 
-const Success = () => {
+interface SuccessProps {
+  costumerName: string;
+  product: {
+    name: string;
+    imageUrl: string;
+  }
+}
+
+const Success = ({ costumerName, product }: SuccessProps) => {
   return (
     <SuccessContainer>
       <h1>Compra efetuada</h1>
 
-      <ImageContainer></ImageContainer>
+      <ImageContainer>
+        <Image src={product.imageUrl} width={120} height={110} alt="" />
+      </ImageContainer>
 
       <p>
-        Uhuul <strong>Diego Fernandes</strong>, sua{" "}
-        <strong>Camiseta Beyond the Limits</strong> já está a caminho da sua casa.
+        Uhuul <strong>{costumerName}</strong>, sua{" "}
+        <strong>{product.name}</strong> já está a caminho da sua casa.
       </p>
 
       <Link href="/">Voltar ao catálogo</Link>
@@ -22,3 +37,24 @@ const Success = () => {
 };
 
 export default Success;
+
+export const getServerSideProps: GetServerSideProps = async ({ query }) => {
+  const sessionId = String(query.session_id);
+
+  const session = await stripe.checkout.sessions.retrieve(sessionId, {
+    expand: ["line_items", "line_items.data.price.product"] // acessando as tabelas relacionadas a tabela de checkout - line_items
+  });
+
+  const costumerName = session.customer_details.name;
+  const product = session.line_items.data[0].price.product as Stripe.Product;
+
+  return {
+    props: {
+      costumerName,
+      product: {
+        name: product.name,
+        imageUrl: product.images[0]
+      }
+    }
+  };
+};

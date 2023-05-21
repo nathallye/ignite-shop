@@ -57,7 +57,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
   // o código que colocarmos aqui dentro não ficar visível para o usuário final, desse modo, podemos colocar código sensível (código de autenticaçao, de banco de dados...)
 
   const response = await stripe.products.list({
-    expand: ["data.default_price"] // acessando a tabela de relacionada a tabela de products - default_price
+    expand: ["data.default_price"] // acessando a tabela relacionada a tabela de products - default_price
   });
 
   // console.log(response.data); // só aparece no console do node(terminal)
