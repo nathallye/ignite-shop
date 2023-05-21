@@ -1,4 +1,5 @@
 import { AppProps } from "next/app";
+import Link from "next/link";
 import Image from "next/image";
 
 import { globalStyles } from "../styles/global";
@@ -12,7 +13,9 @@ const App = ({ Component, pageProps }: AppProps) => {
   return (
     <Container>
       <Header>
-        <Image src={logoImg.src} alt="" width={130} height={52} />
+        <Link href={"/"}>
+          <Image src={logoImg.src} alt="" width={130} height={52} />
+        </Link>
       </Header>
       
       <Component {...pageProps} />
