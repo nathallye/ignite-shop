@@ -10,8 +10,8 @@ export const SuccessContainer = styled("main", {
   height: 656,
 
   h1: {
-    fontSize: "$2xl",
-    color: "$gray100"
+    color: "$gray100",
+    fontSize: "$2xl"
   },
 
   p: {

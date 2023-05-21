@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 
 import { SuccessContainer } from "../../styles/pages/success";
-import { ImageContainer } from "../../styles/pages/product";
+import { ImageContainer } from "../../styles/pages/success";
 
 const Success = () => {
   return (
