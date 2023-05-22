@@ -1,7 +1,7 @@
 # Ignite Shop
 
 <div align="center">
-  <img width="700" src="">
+  <img width="700" src="https://github.com/nathallye/ignite-shop/assets/86172286/8fd10224-71c1-4625-add0-74c06984ace3">
 </div>
 
 ## Sobre o Next.js
