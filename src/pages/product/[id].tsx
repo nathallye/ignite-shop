@@ -49,7 +49,7 @@ const Product = ({ product }: ProductProps) => {
   return (
     <>
       <Head>
-        <title>{product.name} | Ignite Shop</title>
+        <title>{`${product.name} | Ignite Shop`}</title>
       </Head>
    
       <ProductContainer>
@@ -58,7 +58,7 @@ const Product = ({ product }: ProductProps) => {
         </ImageContainer>
 
         <ProductDetails>
-        <h1>{product.name}</h1>
+          <h1>{product.name}</h1>
           <span>{product.price}</span>
 
           <p>{product.description}</p>
