@@ -1,10 +1,15 @@
 import React from "react";
 import Image from "next/image";
-
-import { ImageContainer, ItemContainer, ShoppingCartContainer } from "../styles/components/ShoppingCart";
+import { X } from "phosphor-react";
 
 import shirt1 from "../assets/shirts/shirt-1.png";
-import { X } from "phosphor-react";
+
+import {
+  ImageContainer,
+  InfosItem,
+  ItemContainer,
+  ShoppingCartContainer,
+} from "../styles/components/ShoppingCart";
 
 export const ShoppingCart = () => {
   return (
@@ -18,11 +23,22 @@ export const ShoppingCart = () => {
         <ImageContainer>
           <Image src={shirt1} alt="" width={94} height={94} />
         </ImageContainer>
-        <div>
+        <InfosItem>
           <h3>Camiseta Beyond the Limits</h3>
           <span>R$ 79,90</span>
           <button>Remover</button>
-        </div>
+        </InfosItem>
+      </ItemContainer>
+
+      <ItemContainer>
+        <ImageContainer>
+          <Image src={shirt1} alt="" width={94} height={94} />
+        </ImageContainer>
+        <InfosItem>
+          <h3>Camiseta Beyond the Limits</h3>
+          <span>R$ 79,90</span>
+          <button>Remover</button>
+        </InfosItem>
       </ItemContainer>
     </ShoppingCartContainer>
   );
