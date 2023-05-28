@@ -4,9 +4,11 @@ export const ShoppingCartContainer = styled("div", {
   display: "flex",
   flexDirection: "column",
   gap: "1.5rem",
-
+  
   width: "30rem",
   height: "100%",
+  padding: "3rem",
+
   backgroundColor: "$gray800",
 
   position: "fixed",
@@ -15,8 +17,17 @@ export const ShoppingCartContainer = styled("div", {
   zIndex: 1000,
 
   button: {
-    alignSelf: "flex-end"
+    alignSelf: "flex-end",
+
+    background: "none",
+    border: 0
   }
+});
+
+export const CartItems = styled("div", {
+  display: "flex",
+  flexDirection: "column",
+  gap: "1.5rem",
 });
 
 export const ImageContainer = styled("div", {
@@ -66,12 +77,45 @@ export const InfosItem = styled("div", {
   
   button: {
     display: "flex",
-    alignSelf: "flex-start",
-    background: "none",
-    border: 0,
+    alignSelf: "flex-start !important",
 
     color: "$green500",
     fontSize: "$sm",
     fontWeight: 700
-  }
+  },
+});
+
+export const Resume = styled("div", {
+  display: "flex",
+  flexDirection: "column",
+  gap: "1rem",
+
+  paddingTop: "18rem",
+
+  div: {
+    display: "flex",
+    justifyContent: "space-between",
+
+    span: {
+      color: "$gray100",
+      fontSize: "$md",
+      fontWeight: 700
+    },
+
+    h3: {
+      color: "$gray100",
+      fontSize: "$md",
+      fontWeight: 700
+    },
+  },
+});
+
+// falta arrumar
+export const ButtonBuy = styled("button", {
+  backgroundColor: "$green300 !important",
+  border: "50px !important",
+  
+  width: "100%",
+
+  padding: "20px, 32px, 20px, 32px",
 });
