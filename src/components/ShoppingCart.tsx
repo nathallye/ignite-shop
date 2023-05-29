@@ -8,9 +8,9 @@ import {
   ImageContainer,
   ShoppingCartContainer,
   CartItems,
-  InfosItem,
+  InfosItemContainer,
   ItemContainer,
-  Resume,
+  QuantityValue,
   ButtonBuy,
 } from "../styles/components/ShoppingCart";
 
@@ -28,35 +28,35 @@ export const ShoppingCart = () => {
           <ImageContainer>
             <Image src={shirt1} alt="" width={94} height={94} />
           </ImageContainer>
-          <InfosItem>
+          <InfosItemContainer>
             <h3>Camiseta Beyond the Limits</h3>
             <span>R$ 79,90</span>
             <button>Remover</button>
-          </InfosItem>
+          </InfosItemContainer>
         </ItemContainer>
 
         <ItemContainer>
           <ImageContainer>
             <Image src={shirt1} alt="" width={94} height={94} />
           </ImageContainer>
-          <InfosItem>
+          <InfosItemContainer>
             <h3>Camiseta Beyond the Limits</h3>
             <span>R$ 79,90</span>
             <button>Remover</button>
-          </InfosItem>
+          </InfosItemContainer>
         </ItemContainer>
       </CartItems>
 
-      <Resume>
+      <QuantityValue>
         <div>
-          <h3>Quantidade</h3>
+          <h4>Quantidade</h4>
           <span>3 itens</span>
         </div>
         <div>
           <h3>Valor total</h3>
           <span>R$ 270,00</span>
         </div>
-      </Resume>
+      </QuantityValue>
 
       <ButtonBuy>Finalizar compra</ButtonBuy>
     </ShoppingCartContainer>

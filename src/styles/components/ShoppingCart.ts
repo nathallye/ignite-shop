@@ -20,7 +20,14 @@ export const ShoppingCartContainer = styled("div", {
     alignSelf: "flex-end",
 
     background: "none",
-    border: 0
+    border: 0,
+
+    cursor: "pointer",
+
+    "&:disabled": {
+      cursor: "not-allowed",
+      opacity: 0.6,
+    }
   }
 });
 
@@ -58,7 +65,7 @@ export const ItemContainer = styled("div", {
   }
 });
 
-export const InfosItem = styled("div", {
+export const InfosItemContainer = styled("div", {
   display: "flex",
   justifyContent: "center",
   gap: "0.5rem",
@@ -81,41 +88,66 @@ export const InfosItem = styled("div", {
 
     color: "$green500",
     fontSize: "$sm",
-    fontWeight: 700
+    fontWeight: "bold",
+
+    "&:not(:disabled):hover": {
+      color: "$green300"
+    }
   },
 });
 
-export const Resume = styled("div", {
+export const QuantityValue = styled("div", {
   display: "flex",
   flexDirection: "column",
   gap: "1rem",
 
-  paddingTop: "18rem",
+  paddingTop: "12rem",
+  paddingBottom: "3rem", 
 
   div: {
     display: "flex",
     justifyContent: "space-between",
 
-    span: {
-      color: "$gray100",
-      fontSize: "$md",
-      fontWeight: 700
+    color: "$gray100"
+  },
+
+  "div:first-child": {
+    h4: {
+      fontSize: "$sm",
+      fontWeight: 400
     },
 
-    h3: {
-      color: "$gray100",
-      fontSize: "$md",
-      fontWeight: 700
-    },
+    span: {
+      fontSize: "$sm",
+      fontWeight: 400
+    }
   },
+
+  "div:last-child": {
+    h3: {
+      fontSize: "$xl",
+      fontWeight: "bold"
+    },
+
+    span: {
+      fontSize: "$xl",
+      fontWeight: "bold"
+    },
+  }
 });
 
-// falta arrumar
 export const ButtonBuy = styled("button", {
-  backgroundColor: "$green300 !important",
-  border: "50px !important",
+  backgroundColor: "$green500 !important",
+  borderRadius: "8px",
   
   width: "100%",
+  padding: "1.25rem",
 
-  padding: "20px, 32px, 20px, 32px",
+  color: "$white",
+  fontSize: "$md",
+  fontWeight: "bold",
+
+  "&:not(:disabled):hover": {
+    backgroundColor: "$green300 !important"
+  }
 });
