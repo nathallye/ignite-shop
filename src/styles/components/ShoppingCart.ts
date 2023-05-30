@@ -3,6 +3,7 @@ import { styled } from "..";
 export const ShoppingCartContainer = styled("div", {
   display: "flex",
   flexDirection: "column",
+  justifyContent: "space-between",
   gap: "1.5rem",
   
   width: "30rem",
@@ -34,7 +35,7 @@ export const ShoppingCartContainer = styled("div", {
 export const CartItems = styled("div", {
   display: "flex",
   flexDirection: "column",
-  gap: "1.5rem",
+  gap: "1.5rem"
 });
 
 export const ImageContainer = styled("div", {
@@ -101,9 +102,6 @@ export const QuantityValue = styled("div", {
   flexDirection: "column",
   gap: "1rem",
 
-  paddingTop: "12rem",
-  paddingBottom: "3rem", 
-
   div: {
     display: "flex",
     justifyContent: "space-between",
@@ -123,7 +121,7 @@ export const QuantityValue = styled("div", {
     }
   },
 
-  "div:last-child": {
+  "div:nth-child(2)": {
     h3: {
       fontSize: "$xl",
       fontWeight: "bold"
@@ -133,21 +131,22 @@ export const QuantityValue = styled("div", {
       fontSize: "$xl",
       fontWeight: "bold"
     },
-  }
-});
+  },
 
-export const ButtonBuy = styled("button", {
-  backgroundColor: "$green500 !important",
-  borderRadius: "8px",
-  
-  width: "100%",
-  padding: "1.25rem",
+  button: {
+    backgroundColor: "$green500 !important",
+    borderRadius: "8px",
+    
+    width: "100%",
+    marginTop: "1rem",
+    padding: "1.25rem",
 
-  color: "$white",
-  fontSize: "$md",
-  fontWeight: "bold",
+    color: "$white",
+    fontSize: "$md",
+    fontWeight: "bold",
 
-  "&:not(:disabled):hover": {
-    backgroundColor: "$green300 !important"
+    "&:not(:disabled):hover": {
+      backgroundColor: "$green300 !important"
+    }
   }
 });

@@ -10,20 +10,30 @@ import {
   CartItems,
   InfosItemContainer,
   ItemContainer,
-  QuantityValue,
-  ButtonBuy,
+  QuantityValue
 } from "../styles/components/ShoppingCart";
 
 export const ShoppingCart = () => {
   return (
     <ShoppingCartContainer>
-      <button>
-        <X size={20} color="#c4c4cc" />
-      </button>
-      
-      <h2>Sacola de compras</h2>
-
       <CartItems>
+        <button>
+          <X size={20} color="#c4c4cc" />
+        </button>
+        
+        <h2>Sacola de compras</h2>
+        
+        <ItemContainer>
+          <ImageContainer>
+            <Image src={shirt1} alt="" width={94} height={94} />
+          </ImageContainer>
+          <InfosItemContainer>
+            <h3>Camiseta Beyond the Limits</h3>
+            <span>R$ 79,90</span>
+            <button>Remover</button>
+          </InfosItemContainer>
+        </ItemContainer>
+
         <ItemContainer>
           <ImageContainer>
             <Image src={shirt1} alt="" width={94} height={94} />
@@ -56,9 +66,10 @@ export const ShoppingCart = () => {
           <h3>Valor total</h3>
           <span>R$ 270,00</span>
         </div>
+
+        <button>Finalizar compra</button>
       </QuantityValue>
 
-      <ButtonBuy>Finalizar compra</ButtonBuy>
     </ShoppingCartContainer>
   );
 };
