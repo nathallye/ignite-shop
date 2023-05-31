@@ -44,17 +44,6 @@ export const ShoppingCart = () => {
             <button>Remover</button>
           </InfosItemContainer>
         </ItemContainer>
-
-        <ItemContainer>
-          <ImageContainer>
-            <Image src={shirt1} alt="" width={94} height={94} />
-          </ImageContainer>
-          <InfosItemContainer>
-            <h3>Camiseta Beyond the Limits</h3>
-            <span>R$ 79,90</span>
-            <button>Remover</button>
-          </InfosItemContainer>
-        </ItemContainer>
       </CartItems>
 
       <QuantityValue>
