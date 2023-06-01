@@ -62,7 +62,7 @@ const Product = ({ product }: ProductProps) => {
           <span>{product.price}</span>
 
           <p>{product.description}</p>
-          <button disabled={isCreatingCheckoutSession} onClick={buyProductHandler}>Colocar na sacola</button>
+          <button disabled={isCreatingCheckoutSession} onClick={buyProductHandler}>Comprar</button>
         </ProductDetails>
       </ProductContainer>
     </>

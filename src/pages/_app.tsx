@@ -19,7 +19,7 @@ const App = ({ Component, pageProps }: AppProps) => {
         </Link>
       </Header>
 
-      <ShoppingCart />
+      {/* <ShoppingCart /> */}
       
       <Component {...pageProps} />
     </Container>
