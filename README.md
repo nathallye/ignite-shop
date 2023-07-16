@@ -4,22 +4,6 @@
   <img width="700" src="https://github.com/nathallye/ignite-shop/assets/86172286/8fd10224-71c1-4625-add0-74c06984ace3">
 </div>
 
-## Desafio: Adicionando features ao Ignite Shop
-
-### Sobre o desafio
-
-Nesse desafio, você vai aproveitar a aplicação que já desenvolvemos na trilha para implementar um carrinho que utilizará os dados da API do Stripe para buscar os itens existentes, e controlará, através da sua aplicação, o número de itens que a pessoa deseja comprar.
-
-- Você utilizará a listagem já criada pela aplicação, mas adicionará a possibilidade de adicionar aquele item ao carrinho na página do produto;
-- Salvar todos os itens selecionados em sua aplicação, e exibir o número de itens no carrinho;
-- Enviar o carrinho que você armazenou na aplicação para a rota de checkout, onde irá gerar a sessão de checkout com os `line_items` necessários.
-
-### Entrega
-
-<div align="center">
-  <img width="700" src="">
-</div>
-
 ## Sobre o Next.js
 
 O Next.js permite que você crie aplicativos da Web de pilha completa, estendendo os recursos mais recentes do React e integrando poderosas ferramentas JavaScript baseadas em Rust para compilações mais rápidas. Podemos trabalhar nele com aplicações SSR(Server Side Rendering) e SSG(Static Site Generator).
